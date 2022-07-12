@@ -21,6 +21,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
+        /* UIWindow
+         : View들을 담는 container
+         : 이벤트를 전달해주는 매개체 (사용자 인터페이스에 배경을 제공하며 에번트 처리 행동을 제공하는 객체)
+         - (앞) UILabel / UITextField / UIButton << UIView -> UIViewController << UIWindow << UIApplication -> UIApplicationDelegate (뒤)
+         - storyboard가 아닌 코드로 view를 구성할 때, window rootViewController 수정은 필수!
+         */
+        
+        /* window.makeKeyAndVisible()
+         : keyWindow로 설정.
+          (keyWindow == window가 여러개 존재할 때, 가장 앞쪽에 배치된 window)
+         : window의 rootViewController를 위에서 설정해줬으면 makeKeyAndVisible()을 부르면 지정한 rootViewController가 상호작용을 받는 현재 화면으로 세팅.
+         */
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
