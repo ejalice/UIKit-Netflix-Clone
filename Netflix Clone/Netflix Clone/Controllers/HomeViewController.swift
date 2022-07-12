@@ -46,14 +46,34 @@ class HomeViewController: UIViewController {
     }
     
     private func configureNavbar() {
-        // Original Code
+        
+        // Original Code -> Image Size가 커서 netflixLogo가 중간으로 옴.
 //        var image = UIImage(named: "netflixLogo")
 //        image = image?.withRenderingMode(.alwaysOriginal) // use the image as it is
-        // Fixed Code -> Image Size가 커서 netflixLogo가 중간으로 옴.
-        var image = resizeImage(image: UIImage(named: "netflixLogo")!, targetSize: CGSize(width: 30, height: 30))
-        image = image.withRenderingMode(.alwaysOriginal)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        // Fixed Code 1 -> Image Size 조정
+//        var image = resizeImage(image: UIImage(named: "netflixLogo")!, targetSize: CGSize(width: 30, height: 30))
+//        image = image.withRenderingMode(.alwaysOriginal)
+        
+        // Original Code & Fixed Code 1
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        
+        
+        // Fixed Code 2 -> Button size 조정
+        var image = UIImage(named: "netflixLogo")
+        image = image?.withRenderingMode(.alwaysOriginal)
+        let logoButton = UIButton()
+        logoButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        logoButton.setImage(image, for: .normal)
+        logoButton.imageView?.contentMode = .scaleAspectFit
+        let leftBarButtonItem = UIBarButtonItem(customView: logoButton)
+        let width = leftBarButtonItem.customView?.widthAnchor.constraint(equalToConstant: 30)
+            width?.isActive = true
+        let height = leftBarButtonItem.customView?.heightAnchor.constraint(equalToConstant: 30)
+            height?.isActive = true
+
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        
         
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
