@@ -102,12 +102,7 @@ class HomeViewController: UIViewController {
     
     private func fetchData() {
 //        APICaller.shared.getTrendingMovies { results in
-//            switch results {
-//            case .success(let movies):
-//                print(movies)
-//            case .failure(let error):
-//                print(error)
-//            }
+//            //
 //        }
         
 //        APICaller.shared.getTrendingTVs { results in
