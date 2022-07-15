@@ -11,6 +11,7 @@
 		B63226A4287DB37D007EE5EF /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63226A3287DB37D007EE5EF /* HeroHeaderUIView.swift */; };
 		B65029B828819B7900906863 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65029B728819B7900906863 /* TitleTableViewCell.swift */; };
 		B65029BA28819DA100906863 /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65029B928819DA100906863 /* TitleViewModel.swift */; };
+		B65029BC2881B2B000906863 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65029BB2881B2B000906863 /* SearchResultsViewController.swift */; };
 		B694531B287C58BA00CFEDB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694531A287C58BA00CFEDB3 /* AppDelegate.swift */; };
 		B694531D287C58BA00CFEDB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694531C287C58BA00CFEDB3 /* SceneDelegate.swift */; };
 		B694531F287C58BA00CFEDB3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694531E287C58BA00CFEDB3 /* MainTabBarViewController.swift */; };
@@ -33,6 +34,7 @@
 		B63226A3287DB37D007EE5EF /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		B65029B728819B7900906863 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		B65029B928819DA100906863 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		B65029BB2881B2B000906863 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		B6945317287C58BA00CFEDB3 /* Netflix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B694531A287C58BA00CFEDB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B694531C287C58BA00CFEDB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,25 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		B65029BD2881B2E000906863 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B694532F287C5AED00CFEDB3 /* HomeViewController.swift */,
+				B6945331287C5B1300CFEDB3 /* UpcomingViewController.swift */,
+				B6945333287C5B2D00CFEDB3 /* SearchViewController.swift */,
+				B6945335287C5B4600CFEDB3 /* DownloadsViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B65029BE2881B30000906863 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B65029BB2881B2B000906863 /* SearchResultsViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		B694530E287C58BA00CFEDB3 = {
 			isa = PBXGroup;
 			children = (
@@ -144,10 +165,8 @@
 		B694532E287C5ABB00CFEDB3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B694532F287C5AED00CFEDB3 /* HomeViewController.swift */,
-				B6945331287C5B1300CFEDB3 /* UpcomingViewController.swift */,
-				B6945333287C5B2D00CFEDB3 /* SearchViewController.swift */,
-				B6945335287C5B4600CFEDB3 /* DownloadsViewController.swift */,
+				B65029BE2881B30000906863 /* General */,
+				B65029BD2881B2E000906863 /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +257,7 @@
 				B63226A4287DB37D007EE5EF /* HeroHeaderUIView.swift in Sources */,
 				B6945336287C5B4600CFEDB3 /* DownloadsViewController.swift in Sources */,
 				B694531B287C58BA00CFEDB3 /* AppDelegate.swift in Sources */,
+				B65029BC2881B2B000906863 /* SearchResultsViewController.swift in Sources */,
 				B694531D287C58BA00CFEDB3 /* SceneDelegate.swift in Sources */,
 				B6945332287C5B1300CFEDB3 /* UpcomingViewController.swift in Sources */,
 				B69AA06F28803BAA006BC595 /* Title.swift in Sources */,
