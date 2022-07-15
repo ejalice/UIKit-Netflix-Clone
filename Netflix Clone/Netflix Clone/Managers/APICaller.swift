@@ -120,7 +120,7 @@ class APICaller {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedTogetData))
             }
         }
         
@@ -139,13 +139,47 @@ class APICaller {
                 let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
                 completion(.success(results.results))
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedTogetData))
             }
         }
         
         task.resume()
     }
     
+    func search(with query: String, completion: @escaping (Result<[Title], Error>) -> Void) {
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+        /* addingPercentEncoding
+         : URL에 한글 또는 특수문자가 있을 경우 nil 값으로 변형되는 경우를 방지.
+         (한국어는 URL로 인식할 수 있는 언어가 아님.)
+         - URL로 사용 가능한 문자: 알파벳, 숫자, 몇가지의 특수문자들.
+         - 이를 encoding 하는 방법 -> addingPercentEncoding(withAllowedCharacters)
+         - 특정 set에 들어있지 않는 경우는 새롭게 대처해서 String을 만들어서 return 해줌.
+            -> 특정 set에 들어있지 않는 문자를 encoding 해줌.
+         
+         - 주로 urlQueryAllowed와 urlPathAllowed를 사용.
+         - urlQueryAllowed
+         : set에 '?'를 포함 -> '?'는 encoding 하지 않음.
+         - urlPathAllowed
+         : set에 '?' 미포함 -> '?'도 encoding
+         */
+        
+        guard let url = URL(string: "\(Constants.baseURL)/3/search/movie?api_key=\(Constants.API_KEY)&query=\(query)") else {return}
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(TrendingTitleResponse.self, from: data)
+                completion(.success(results.results))
+            } catch {
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        
+        task.resume()
+    }
 }
 
-// https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>&language=en-US&page=1

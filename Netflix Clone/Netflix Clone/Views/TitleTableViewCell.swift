@@ -14,7 +14,7 @@ class TitleTableViewCell: UITableViewCell {
     private let playTitleButton: UIButton = {
        
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false // 직접 constraint 주겠다는 의미
         
         let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
         button.setImage(image, for: .normal)

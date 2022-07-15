@@ -44,6 +44,12 @@ class UpcomingViewController: UIViewController {
                 self?.titles = titles
                 DispatchQueue.main.async {
                     self?.upcomingTable.reloadData()
+                    /* reloadData
+                     : tableView의 instance method
+                     - tableView의 현재 보이는 row, section 업데이트 할 때 사용
+                     - 특정 row, section이 아닌 tableView 영역 전체 업데이트할 때 효율적
+                     - UICollectionView, UITableView 등에서 사용 가능
+                     */
                 }
             case .failure(let error):
                 print(error.localizedDescription)
