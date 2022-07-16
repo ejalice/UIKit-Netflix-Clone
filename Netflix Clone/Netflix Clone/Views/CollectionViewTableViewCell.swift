@@ -75,6 +75,4 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         return titles.count
     }
     
-    
-    
 }
