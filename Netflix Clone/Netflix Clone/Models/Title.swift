@@ -14,7 +14,7 @@ struct TrendingTitleResponse: Codable {
 struct Title: Codable {
     let id: Int
     let media_type: String?
-    let title: String?
+//    let title: String?
     let original_name: String?
     let original_title: String?
     let poster_path: String?
