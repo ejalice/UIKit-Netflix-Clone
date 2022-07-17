@@ -56,20 +56,20 @@ class HomeViewController: UIViewController {
         
         headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
-        configureHeaderView()
+        configureHeroHeaderView()
 
     }
     
-    private func configureHeaderView() {
+    private func configureHeroHeaderView() {
         
         APICaller.shared.getTrendingMovies { [weak self] result in
             switch result {
+                
             case .success(let titles):
                 let selectedTitle = titles.randomElement()
-                
                 self?.randomTrendingMovie = selectedTitle
-                
                 self?.headerView?.configure(with: TitleViewModel(titleName: (selectedTitle?.original_title ?? selectedTitle?.original_name ?? ""), posterURL: (selectedTitle?.poster_path ?? "")))
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -159,6 +159,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         
         switch indexPath.section {
+            
         case Sections.TrendingMovies.rawValue:
             APICaller.shared.getTrendingMovies { result in
                 switch result {

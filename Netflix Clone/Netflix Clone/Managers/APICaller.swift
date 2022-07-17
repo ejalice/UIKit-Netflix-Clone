@@ -45,6 +45,7 @@ class APICaller {
                 completion(.success(results.results))
             } catch {
                 completion(.failure(APIError.failedTogetData))
+                print("TRENDING MOVIE ERROR")
             }
         }
         
@@ -67,6 +68,7 @@ class APICaller {
             }
             catch {
                 completion(.failure(APIError.failedTogetData))
+                print("TRENDING TV ERROR")
             }
         }
         
@@ -86,6 +88,7 @@ class APICaller {
                 completion(.success(results.results))
             } catch {
                 completion(.failure(APIError.failedTogetData))
+                print("UPCOMING MOVIES ERROR")
             }
         }
         
@@ -105,6 +108,7 @@ class APICaller {
                 completion(.success(results.results))
             } catch {
                 completion(.failure(APIError.failedTogetData))
+                print("POPULAR MOVIES ERROR")
             }
         }
         
@@ -124,6 +128,7 @@ class APICaller {
                 completion(.success(results.results))
             } catch {
                 completion(.failure(APIError.failedTogetData))
+                print("TOPRATEDMOVIES ERROR")
             }
         }
         
@@ -143,6 +148,7 @@ class APICaller {
                 completion(.success(results.results))
             } catch {
                 completion(.failure(APIError.failedTogetData))
+                print("DISCOVER MOVIE ERROR")
             }
         }
         
@@ -179,16 +185,18 @@ class APICaller {
                 completion(.success(results.results))
             } catch {
                 completion(.failure(APIError.failedTogetData))
+                print("SEARCH ERROR")
             }
         }
         
         task.resume()
     }
     
+    
     func getMovie(with query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
-        guard let url = URL(string: "\(Constants.YoutubeBaseURL))q=\(query)&key=\(Constants.YoutubeAPI_KEY)") else {return}
+        guard let url = URL(string: "\(Constants.YoutubeBaseURL)q=\(query)&key=\(Constants.YoutubeAPI_KEY)") else {return}
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             
@@ -201,7 +209,7 @@ class APICaller {
                 completion(.success(results.items[0]))
             } catch {
                 completion(.failure(error))
-                print(error.localizedDescription)
+                print("GETMOVIE ERROR")
             }
 
         }
